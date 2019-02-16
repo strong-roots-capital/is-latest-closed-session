@@ -47,7 +47,7 @@ Related
 
 ▸ **isLatestClosedSession**(date: *`Date`*, timeframe: *`string`*, now?: *`Date`*): `boolean`
 
-*Defined in [is-latest-closed-session.ts:21](https://github.com/strong-roots-capital/is-latest-closed-session/blob/1a88574/src/is-latest-closed-session.ts#L21)*
+*Defined in [is-latest-closed-session.ts:21](https://github.com/strong-roots-capital/is-latest-closed-session/blob/1c3d98b/src/is-latest-closed-session.ts#L21)*
 
 Test to determine if a date falls inside the most-recently closed session.
 
