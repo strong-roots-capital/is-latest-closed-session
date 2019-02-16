@@ -51,9 +51,10 @@ const invalidTimeframes = [ 'Y', '!!', '.', 'bumble', '~<>']
 invalidTimeframes.forEach((timeframe: string) => test(rejectsInvalidTradingviewFormats, timeframe))
 
 for (const timeframe of listTradingviewFormats()) {
-    const recentSessions = getRecentSessions(timeframe)
+    const now = utcDate()
+    const recentSessions = getRecentSessions(timeframe, now)
     const [currentlyOpenSessionOpen, latestClosedSessionOpen, ..._] = recentSessions.reverse()
-    test(equalToCurrentlyOpenSessionOpenShouldFail, new Date(currentlyOpenSessionOpen), timeframe)
+    test(equalToCurrentlyOpenSessionOpenShouldFail, new Date(currentlyOpenSessionOpen), timeframe, now)
 }
 
 for (const timeframe of listTradingviewFormats()) {
