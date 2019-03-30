@@ -1,6 +1,6 @@
 {
   "name": "@strong-roots-capital/is-latest-closed-session",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Test to determine if a date falls inside the most-recently closed session",
   "main": "dist/is-latest-closed-session.js",
   "types": "dist/is-latest-closed-session.d.ts",
