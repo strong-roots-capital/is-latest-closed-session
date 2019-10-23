@@ -53,7 +53,7 @@ Related
 
 ▸ **isLatestClosedSession**(date: *`Date` \| `number`*, timeframe: *`string` \| `number`*, now?: *`Date`*): `boolean`
 
-*Defined in [is-latest-closed-session.ts:23](https://github.com/strong-roots-capital/is-latest-closed-session/blob/f105150/src/is-latest-closed-session.ts#L23)*
+*Defined in [is-latest-closed-session.ts:23](https://github.com/strong-roots-capital/is-latest-closed-session/blob/edf6b2c/src/is-latest-closed-session.ts#L23)*
 
 Test to determine if a date falls inside the most-recently closed session.
 
