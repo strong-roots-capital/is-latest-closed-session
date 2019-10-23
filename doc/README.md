@@ -22,6 +22,12 @@ isLatestClosedSession(new Date(0), '4H')
 
 isLatestClosedSession(new Date(0), '1', new Date(61 * 1000))
 //=> true
+
+isLatestClosedSession(new Date(0), 240)
+//=>false
+
+isLatestClosedSession(1571871598069, '1')
+//=> true
 ```
 
 Related
@@ -45,9 +51,9 @@ Related
 
 ###  isLatestClosedSession
 
-▸ **isLatestClosedSession**(date: *`Date`*, timeframe: *`string`*, now?: *`Date`*): `boolean`
+▸ **isLatestClosedSession**(date: *`Date` \| `number`*, timeframe: *`string` \| `number`*, now?: *`Date`*): `boolean`
 
-*Defined in [is-latest-closed-session.ts:21](https://github.com/strong-roots-capital/is-latest-closed-session/blob/1d0bee6/src/is-latest-closed-session.ts#L21)*
+*Defined in [is-latest-closed-session.ts:23](https://github.com/strong-roots-capital/is-latest-closed-session/blob/f105150/src/is-latest-closed-session.ts#L23)*
 
 Test to determine if a date falls inside the most-recently closed session.
 
@@ -55,8 +61,8 @@ Test to determine if a date falls inside the most-recently closed session.
 
 | Name | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| date | `Date` | - |  Date under test |
-| timeframe | `string` | - |  Length of session in Trading View format |
+| date | `Date` \| `number` | - |
+| timeframe | `string` \| `number` | - |
 | `Default value` now | `Date` |  utcDate() |  Used as current time when calculating most-recently closed session |
 
 **Returns:** `boolean`
