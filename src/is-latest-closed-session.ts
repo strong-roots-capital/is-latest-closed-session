@@ -5,6 +5,8 @@
 
 import ow from 'ow'
 import moment from 'moment'
+import is from '@sindresorhus/is'
+import session from 'market-session'
 import { utcDate } from '@hamroctopus/utc-date'
 import getRecentSessions from '@strong-roots-capital/get-recent-sessions'
 import { inTradingviewFormat } from '@strong-roots-capital/is-tradingview-format'
@@ -13,22 +15,25 @@ import { inTradingviewFormat } from '@strong-roots-capital/is-tradingview-format
  * Test to determine if a date falls inside the most-recently closed
  * session.
  *
- * @param date - Date under test
- * @param timeframe - Length of session in Trading View format
+ * @param dDate - Date under test
+ * @param sTimeframe - Length of session in Trading View format
  * @param now - Used as current time when calculating most-recently closed session
  * @returns True if `date` falls inside the most-recently closed session from `now`
  */
 export default function isLatestClosedSession(
-    date: Date,
-    timeframe: string,
+    date: Date | number,
+    timeframe: string | number,
     now: Date = utcDate()
 ): boolean {
 
-    ow(timeframe, ow.string.is(inTradingviewFormat))
+    const dDate = is.date(date) ? date : new Date(date)
+    const sTimeframe = is.string(timeframe) ? timeframe : session.toString(timeframe)
 
-    const time = moment.utc(date)
+    ow(sTimeframe, ow.string.is(inTradingviewFormat))
 
-    const recentSessions = getRecentSessions(timeframe, now)
+    const time = moment.utc(dDate)
+
+    const recentSessions = getRecentSessions(sTimeframe, now)
     const [currentlyOpenSessionOpen, mostRecentlyClosedSessionOpen] = recentSessions.reverse()
 
     return time.isSameOrAfter(mostRecentlyClosedSessionOpen) && time.isBefore(currentlyOpenSessionOpen)

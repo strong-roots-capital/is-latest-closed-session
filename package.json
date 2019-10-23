@@ -47,9 +47,11 @@
   "homepage": "https://github.com/strong-roots-capital/is-latest-closed-session",
   "dependencies": {
     "@hamroctopus/utc-date": "^1.0.5",
+    "@sindresorhus/is": "^1.2.0",
     "@strong-roots-capital/get-recent-sessions": "^1.0.3",
     "@strong-roots-capital/is-tradingview-format": "^1.2.2",
     "@strong-roots-capital/list-tradingview-formats": "^1.0.2",
+    "market-session": "^2.0.4",
     "moment": "^2.24.0",
     "ow": "^0.12.0"
   },

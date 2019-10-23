@@ -18,6 +18,12 @@ isLatestClosedSession(new Date(0), '4H')
 
 isLatestClosedSession(new Date(0), '1', new Date(61 * 1000))
 //=> true
+
+isLatestClosedSession(new Date(0), 240)
+//=>false
+
+isLatestClosedSession(1571871598069, '1')
+//=> true
 ```
 
 ## Related
