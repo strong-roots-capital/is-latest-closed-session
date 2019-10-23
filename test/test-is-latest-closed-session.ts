@@ -53,14 +53,14 @@ invalidTimeframes.forEach((timeframe: string) => test(rejectsInvalidTradingviewF
 for (const timeframe of listTradingviewFormats()) {
     const now = utcDate()
     const recentSessions = getRecentSessions(timeframe, now)
-    const [currentlyOpenSessionOpen, latestClosedSessionOpen, ..._] = recentSessions.reverse()
+    const [currentlyOpenSessionOpen, latestClosedSessionOpen] = recentSessions.reverse()
     test(equalToCurrentlyOpenSessionOpenShouldFail, new Date(currentlyOpenSessionOpen), timeframe, now)
 }
 
 for (const timeframe of listTradingviewFormats()) {
     const now = utcDate()
     const recentSessions = getRecentSessions(timeframe, now)
-    const [currentlyOpenSessionOpen, latestClosedSessionOpen, ..._] = recentSessions.reverse()
+    const [currentlyOpenSessionOpen, latestClosedSessionOpen] = recentSessions.reverse()
     const insideCurrentlyOpenSession = moment.utc(currentlyOpenSessionOpen).add(1, 'second').toDate()
     test(insideCurrentlyOpenSessionOpenShouldFail, insideCurrentlyOpenSession, timeframe, now)
 }
@@ -68,7 +68,7 @@ for (const timeframe of listTradingviewFormats()) {
 for (const timeframe of listTradingviewFormats()) {
     const now = utcDate()
     const recentSessions = getRecentSessions(timeframe, now)
-    const [currentlyOpenSessionOpen, latestClosedSessionOpen, ..._] = recentSessions.reverse()
+    const [currentlyOpenSessionOpen, latestClosedSessionOpen] = recentSessions.reverse()
     const oneSecondBeforeCurrentlyOpenSessionOpen = moment.utc(currentlyOpenSessionOpen).subtract(1, 'second').toDate()
     test(oneSecondBeforeCurrentlyOpenSessionOpenShouldPass, oneSecondBeforeCurrentlyOpenSessionOpen, timeframe, now)
 }
@@ -76,14 +76,14 @@ for (const timeframe of listTradingviewFormats()) {
 for (const timeframe of listTradingviewFormats()) {
     const now = utcDate()
     const recentSessions = getRecentSessions(timeframe, now)
-    const [currentlyOpenSessionOpen, latestClosedSessionOpen, ..._] = recentSessions.reverse()
+    const [currentlyOpenSessionOpen, latestClosedSessionOpen] = recentSessions.reverse()
     test(equalToMostRecentlyClosedSessionOpenShouldPass, new Date(latestClosedSessionOpen), timeframe, now)
 }
 
 for (const timeframe of listTradingviewFormats()) {
     const now = utcDate()
     const recentSessions = getRecentSessions(timeframe, now)
-    const [currentlyOpenSessionOpen, latestClosedSessionOpen, ..._] = recentSessions.reverse()
+    const [currentlyOpenSessionOpen, latestClosedSessionOpen] = recentSessions.reverse()
     const beforeMostRecentlyClosedSessionClose = moment.utc(latestClosedSessionOpen).add(1, 'second').toDate()
     test(betweenMostRecentlyClosedSessionOpenAndOneSecondBeforeSameSessionCloseShouldPass, beforeMostRecentlyClosedSessionClose, timeframe, now)
 }
@@ -91,7 +91,7 @@ for (const timeframe of listTradingviewFormats()) {
 for (const timeframe of listTradingviewFormats()) {
     const now = utcDate()
     const recentSessions = getRecentSessions(timeframe, now)
-    const [currentlyOpenSessionOpen, latestClosedSessionOpen, ..._] = recentSessions.reverse()
+    const [currentlyOpenSessionOpen, latestClosedSessionOpen] = recentSessions.reverse()
     const beforeMostRecentlyClosedSessionOpen = moment.utc(latestClosedSessionOpen).subtract(1, 'second').toDate()
     test(oneSecondBeforeMostRecentlyClosedSessionOpenShouldFail, beforeMostRecentlyClosedSessionOpen, timeframe, now)
 }
